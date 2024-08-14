@@ -1,0 +1,37 @@
+{
+	"name": "automattic/js-components",
+	"description": "Jetpack Components Package.",
+	"license": "GPL-2.0-or-later",
+	"require": {},
+	"require-dev": {
+		"automattic/jetpack-changelogger": "@dev"
+	},
+	"scripts": {
+		"build-production": [
+			"pnpm run build"
+		],
+		"build-development": [
+			"pnpm run build"
+		],
+		"test-js": [
+			"pnpm run test"
+		]
+	},
+	"repositories": [
+		{
+			"type": "path",
+			"url": "../../packages/*",
+			"options": {
+				"monorepo": true
+			}
+		}
+	],
+	"extra": {
+		"autotagger": true,
+		"npmjs-autopublish": true,
+		"mirror-repo": "Automattic/jetpack-components",
+		"changelogger": {
+			"link-template": "https://github.com/Automattic/jetpack-components/compare/${old}...${new}"
+		}
+	}
+}

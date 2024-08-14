@@ -1,0 +1,3 @@
+{
+	"redefinable-internals": [ "defined", "constant", "dns_get_record" ]
+}

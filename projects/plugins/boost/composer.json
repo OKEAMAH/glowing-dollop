@@ -1,0 +1,108 @@
+{
+	"name": "automattic/jetpack-boost",
+	"description": "Boost your WordPress site's performance, from the creators of Jetpack",
+	"type": "library",
+	"license": "GPL-2.0-or-later",
+	"version": "3.2.3-alpha",
+	"authors": [
+		{
+			"name": "Automattic, Inc.",
+			"email": "support@jetpack.com"
+		}
+	],
+	"minimum-stability": "dev",
+	"prefer-stable": true,
+	"require": {
+		"ext-json": "*",
+		"automattic/jetpack-admin-ui": "@dev",
+		"automattic/jetpack-assets": "@dev",
+		"automattic/jetpack-autoloader": "@dev",
+		"automattic/jetpack-boost-core": "@dev",
+		"automattic/jetpack-boost-speed-score": "@dev",
+		"automattic/jetpack-composer-plugin": "@dev",
+		"automattic/jetpack-config": "@dev",
+		"automattic/jetpack-connection": "@dev",
+		"automattic/jetpack-device-detection": "@dev",
+		"automattic/jetpack-image-cdn": "@dev",
+		"automattic/jetpack-my-jetpack": "@dev",
+		"automattic/jetpack-plugin-deactivation": "@dev",
+		"automattic/jetpack-plugins-installer": "@dev",
+		"automattic/jetpack-sync": "@dev",
+		"automattic/jetpack-wp-js-data-sync": "@dev",
+		"tedivm/jshrink": "1.4.0",
+		"tubalmartin/cssmin": "^4.1"
+	},
+	"require-dev": {
+		"automattic/jetpack-changelogger": "@dev",
+		"automattic/wordbless": "0.4.2",
+		"brain/monkey": "2.6.1",
+		"yoast/phpunit-polyfills": "1.1.0"
+	},
+	"scripts": {
+		"phpunit": [
+			"./vendor/phpunit/phpunit/phpunit --colors=always"
+		],
+		"test-php": [
+			"@composer phpunit"
+		],
+		"build-development": [
+			"pnpm run build"
+		],
+		"build-production": [
+			"pnpm run build-production-concurrently"
+		],
+		"watch": [
+			"Composer\\Config::disableProcessTimeout",
+			"pnpm run watch"
+		],
+		"post-install-cmd": "WorDBless\\Composer\\InstallDropin::copy",
+		"post-update-cmd": "WorDBless\\Composer\\InstallDropin::copy"
+	},
+	"autoload-dev": {
+		"psr-4": {
+			"Automattic\\Jetpack_Boost\\Tests\\": "./tests/php"
+		}
+	},
+	"autoload": {
+		"classmap": [
+			"app/"
+		]
+	},
+	"config": {
+		"sort-packages": true,
+		"platform": {
+			"ext-intl": "0.0.0"
+		},
+		"autoloader-suffix": "b1e77e6231d50e7663f84529b6a3dfda_jetpack_boostⓥ3_2_3_alpha",
+		"allow-plugins": {
+			"roots/wordpress-core-installer": true,
+			"automattic/jetpack-autoloader": true,
+			"automattic/jetpack-composer-plugin": true
+		}
+	},
+	"repositories": [
+		{
+			"type": "path",
+			"url": "../../packages/*",
+			"options": {
+				"monorepo": true
+			}
+		}
+	],
+	"extra": {
+		"mirror-repo": "Automattic/jetpack-boost-production",
+		"autorelease": true,
+		"autotagger": {
+			"v": false
+		},
+		"release-branch-prefix": "boost",
+		"version-constants": {
+			"JETPACK_BOOST_VERSION": "jetpack-boost.php"
+		},
+		"wp-plugin-slug": "jetpack-boost",
+		"wp-svn-autopublish": true,
+		"changelogger": {
+			"link-template": "https://github.com/Automattic/jetpack-boost-production/compare/${old}...${new}"
+		}
+	}
+}

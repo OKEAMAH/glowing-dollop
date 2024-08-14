@@ -1,0 +1,184 @@
+@import '../../scss/calypso-colors';
+@import '../../scss/mixins/ui';
+
+.jp-dash-item {
+	@include dashboard-card-shadow;
+
+	.dops-section-header__actions {
+		.form-toggle__label {
+			position: relative;
+			right: 0;
+		}
+		.form-toggle__label-content {
+			margin: 0;
+		}
+
+		a:hover {
+			text-decoration: underline;
+		}
+	}
+}
+
+.jp-dash-item__content {
+	flex-grow: 1;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-start;
+}
+
+.jp-dash-item__card {
+	margin: 0;
+	box-shadow: none;
+	padding: rem( 18px ) rem( 24px ) rem( 16px );
+}
+
+.jp-dash-item__count {
+	margin: 0;
+	color: $black;
+	font-weight: 400;
+	font-size: $font-headline-small;
+	line-height: 40px;
+	display: inline-block;
+	padding: 0;
+	text-align: center;
+
+	@include breakpoint( "<660px" ) {
+		font-size: rem( 23px );
+	}
+
+	+ .jp-dash-item__description {
+		flex-basis: 100%
+	}
+	&.is-alert {
+		color: var( --jp-red-50 );
+	}
+}
+
+.jp-dash-item__title {
+	max-width: calc( 100% - 18px ); // For the support icon
+
+	&.jp-dash-item__title_fullwidth {
+		flex-basis: 100%;
+	}
+
+	&.jp-dash-item__title_top {
+		margin-top: 0;
+	}
+}
+
+.jp-dash-item__description {
+	margin: 0 50px 0 0;
+	font-size: rem( 14px );
+	max-width: calc( 100% - 18px ); // For the support icon
+	color: $gray-80;
+	letter-spacing: -0.02em;
+	line-height: 24px;
+	font-weight: 400;
+
+	&.jp-dash-item__connect {
+		margin-top: 20px;
+	}
+
+	.jp-link-button {
+		border: none;
+		box-shadow: none;
+		color: $black;
+		font-weight: 400;
+		font-size: $font-body-small;
+		text-decoration: underline;
+		transition-duration: .05s;
+		transition-property: border,background,color;
+		transition-timing-function: ease-in-out;
+		background: none;
+		padding: 0;
+
+		&:hover {
+			text-decoration-thickness: 3px;
+		}
+		&:focus {
+			text-decoration-line: none;
+			border-radius: 2px;
+			box-shadow: 0 0 0 var(--wp-admin-border-width-focus) black;
+			outline: 3px solid transparent;
+		}
+	}
+}
+
+.jp-dash-item .dops-section-header {
+	width: 100%;
+
+	.dops-button {
+		font-style: normal;
+	}
+
+	&.is-working,
+	&.is-premium-inactive {
+		.dops-section-header__actions {
+			color: $gray-text-min;
+		}
+	}
+}
+
+.jp-dash-item {
+	.dops-section-header__actions {
+		.dops-notice {
+			margin-top: rem( -1px );
+			margin-bottom: rem( -1px );
+		}
+	}
+}
+.jp-dash-item__active-label {
+	display: inline-block;
+	color: darken( $gray, 10% );
+	color: $gray;
+	font-size: rem( 12px );
+	font-weight: 400;
+	text-transform: uppercase;
+}
+
+// conditional styles for content when items are inactive
+.jp-dash-item__is-inactive {
+	.jp-at-a-glance__left &,
+	.jp-at-a-glance__right & {
+		border: 1px solid $gray-5;
+		background: #F9F9F6;
+		box-shadow: none;
+
+		.dops-card {
+			background: none;
+
+			.dops-section-header__label-text:before {
+				background: none;
+			}
+		}
+	}
+
+	.dops-section-header {
+		border-bottom: 0;
+	}
+
+	.dops-section-header__label {
+		padding-right: rem( 8px );
+	}
+	.dops-section-header__label-text {
+		&:before {
+			@include long-content-fade( $size: 8px, $color : $white );
+		}
+	}
+}
+
+.jp-dash-item__disabled {
+	opacity: .5;
+	position: relative;
+
+	&::before {
+		content: "";
+		width: 100%;
+		height: 100%;
+		display: block;
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 1;
+	}
+}

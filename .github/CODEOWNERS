@@ -1,0 +1,14 @@
+############################################
+# Please fire off a PR to this file to own #
+#  or disavow any section of the codebase. #
+############################################
+
+# Packages
+/projects/packages/search/src/wpes @Automattic/prometheus
+
+# Plugins
+
+# Functionality that is important to our partners
+/projects/plugins/jetpack/class.jetpack-cli.php @automattic/jetpack-infinity
+/tools/partner-provision.sh @automattic/jetpack-infinity
+/tools/partner-cancel.sh @automattic/jetpack-infinity

@@ -1,0 +1,99 @@
+
+.jb-section {
+	padding-top: $padding;
+	padding-bottom: $padding;
+	isolation: isolate;
+	z-index: 10;
+
+	.jetpack-boost-jitm-card .jitm-card {
+		margin: 0 0 2.5rem auto;
+	}
+
+}
+
+// Helper style for buttons we want to look like links.
+button.jb-link {
+	background: none;
+	text-decoration: underline;
+	border: none;
+	padding: 0;
+	margin: 0;
+	cursor: pointer;
+}
+
+.jb-link{
+	display:inline-block;
+	margin-top: 10px;
+	font-size:0.8em;
+}
+
+.jb-section--alt {
+	background-color: $alt_white;
+}
+
+.jb-section--scores {
+	position: relative;
+	z-index: 15;
+}
+
+.jb-container {
+	width: 87.5%;
+	max-width: 1320px;
+	margin-left: auto;
+	margin-right: auto;
+
+	&--narrow {
+		@extend .jb-container;
+		max-width: 744px;
+	}
+
+	&--fixed {
+		max-width: 1176px;
+		width: auto;
+		padding-left: 24px;
+		padding-right: 24px;
+	}
+}
+
+.jb-dashboard-footer {
+	@extend .jb-container;
+
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-top: $padding;
+	margin-bottom: $padding;
+	@include breakpoint( xs ) {
+		flex-direction: column;
+		justify-content: flex-start;
+	}
+}
+
+.jb-warning-modal {
+	&__actions {
+		display: flex;
+		justify-content: flex-end;
+
+		> div {
+			display: flex;
+			flex-direction: column;
+
+			> div {
+				display: flex;
+			}
+		}
+
+		button {
+			margin-left: auto;
+
+			&.confirm {
+				margin-left: 10px;
+			}
+		}
+
+		.checkbox {
+			font-size: 12px;
+			margin-top: 10px;
+		}
+	}
+}

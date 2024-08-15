@@ -1,0 +1,42 @@
+# Jetpack Approvers need to review changes to the monorepo itself.
+- name: Monorepo itself
+  paths:
+   - '!projects/**'
+  teams:
+   - jetpack-approvers
+
+# Jetpack Approvers review the Jetpack plugin and all packages.
+- name: Jetpack and packages
+  paths:
+   - 'projects/packages/**'
+   - 'projects/plugins/jetpack/**'
+  teams:
+   - jetpack-approvers
+
+# The Backup team reviews changes to the VaultPress and Backup plugin,
+# and can add dependencies to the monorepo's lock file.
+- name: VaultPress and Backup
+  paths:
+   - 'projects/plugins/vaultpress/**'
+   - 'projects/plugins/backup/**'
+   - 'pnpm-lock.yaml'
+  teams:
+   - yamato-backup-and-security
+   - jetpack-approvers
+
+# The Boost team reviews changes to the Boost plugin,
+# and can add dependencies to the monorepo's lock file.
+- name: Boost
+  paths:
+   - 'projects/plugins/boost/**'
+   - 'pnpm-lock.yaml'
+  teams:
+   - heart-of-gold
+   - jetpack-approvers
+
+# Jetpack Approvers review everything that hasn't been specifically assigned above.
+# This needs to be last.
+- name: Default to Jetpack Approvers
+  paths: unmatched
+  teams:
+   - jetpack-approvers

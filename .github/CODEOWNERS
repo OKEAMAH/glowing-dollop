@@ -1,0 +1,16 @@
+############################################
+# Please fire off a PR to this file to own #
+#  or disavow any section of the codebase. #
+############################################
+
+# Individual Modules:
+/projects/plugins/jetpack/modules/search/          @Automattic/jetpack-search
+
+# Other bits of the Codebase
+/projects/plugins/jetpack/_inc/lib/debugger/ @kraftbj
+/projects/plugins/jetpack/_inc/lib/jetpack-wpes-query-builder/ @gibrown
+
+# Functionality that is important to our partners
+/projects/plugins/jetpack/class.jetpack-cli.php @automattic/jetpack-infinity
+/tools/partner-provision.sh @automattic/jetpack-infinity
+/tools/partner-cancel.sh @automattic/jetpack-infinity

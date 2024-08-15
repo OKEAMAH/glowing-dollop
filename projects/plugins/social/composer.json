@@ -1,0 +1,51 @@
+{
+	"name": "automattic/jetpack-social-plugin",
+	"description": "Social plugin",
+	"type": "wordpress-plugin",
+	"license": "GPL-2.0-or-later",
+	"require": {
+		"automattic/jetpack-autoloader": "2.11.x-dev",
+		"automattic/jetpack-composer-plugin": "1.1.x-dev",
+		"automattic/jetpack-social": "0.1.x-dev"
+	},
+	"require-dev": {
+		"automattic/jetpack-changelogger": "^3.0",
+		"automattic/wordbless": "0.3.1",
+		"yoast/phpunit-polyfills": "1.0.3"
+	},
+	"scripts": {
+		"phpunit": [
+			"./vendor/phpunit/phpunit/phpunit --colors=always"
+		],
+		"test-coverage": [
+			"php -dpcov.directory=. ./vendor/bin/phpunit --coverage-clover \"$COVERAGE_DIR/clover.xml\""
+		],
+		"test-php": [
+			"@composer phpunit"
+		]
+	},
+	"repositories": [
+		{
+			"type": "path",
+			"url": "../../packages/*",
+			"options": {
+				"monorepo": true
+			}
+		}
+	],
+	"minimum-stability": "dev",
+	"prefer-stable": true,
+	"extra": {
+		"mirror-repo": "Automattic/jetpack-social-plugin",
+		"release-branch-prefix": "social",
+		"wp-plugin-slug": "jetpack-social"
+	},
+	"config": {
+		"allow-plugins": {
+			"roots/wordpress-core-installer": true,
+			"automattic/jetpack-autoloader": true,
+			"automattic/jetpack-composer-plugin": true
+		},
+		"autoloader-suffix": "c4802e05bbcf59fd3b6350e8d3e5482c_socialⓥ0_1_0_alpha"
+	}
+}

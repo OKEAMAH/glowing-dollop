@@ -1,0 +1,12 @@
+[
+	{
+		"id": "maplibre-gl-js",
+		"file": "node_modules/maplibre-gl/dist/maplibre-gl.js",
+		"version": "1.15.2"
+	},
+	{
+		"id": "maplibre-gl-css",
+		"file": "node_modules/maplibre-gl/dist/maplibre-gl.css",
+		"version": "1.15.2"
+	}
+]

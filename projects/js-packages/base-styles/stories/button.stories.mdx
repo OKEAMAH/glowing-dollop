@@ -1,0 +1,166 @@
+import { Meta, Source, Story, Canvas } from '@storybook/addon-docs';
+import { Button } from '@wordpress/components';
+import './button.scss';
+
+<Meta title="Components/Buttons" component="Jetpack Buttons" />
+
+# Buttons
+
+This page contains all variations for RNA buttons. These use the `Button` component from `@wordpress/components` and are styled with our own Jetpack styles.
+
+<Story name="Example button">
+	<Button variant="primary" href="https://jetpack.com/" target="_blank">
+		Love me some buttons
+	</Button>
+</Story>
+
+The file you are looking at lives in js-packages/base-styles/stories/button.stories.mdx.
+
+## Buttons variants
+
+Specifies the button’s style. The accepted values are `primary` (the primary button styles), `secondary` (the default button styles), `tertiary` (the text-based button styles), and `link` (the link button styles).
+
+<Canvas>
+	<Story name="Primary button">
+		<Button variant="primary" href="#">
+			Primary button
+		</Button>
+	</Story>
+</Canvas>
+
+<Canvas>
+	<Story name="Secondary button">
+		<Button variant="secondary" href="#">
+			Secondary button
+		</Button>
+	</Story>
+</Canvas>
+
+<Canvas>
+	<Story name="Link button">
+		<Button variant="link" href="#">
+			Link button
+		</Button>
+	</Story>
+</Canvas>
+
+## Destructive buttons
+
+Renders a red text-based button style to indicate destructive behavior.
+
+<Canvas>
+	<Story name="Destructive Primary button">
+		<Button
+			variant="primary"
+			isDestructive
+			href="#"
+		>
+			Destructive Primary button
+		</Button>
+	</Story>
+</Canvas>
+
+<Canvas>
+	<Story name="Destructive Secondary button">
+		<Button
+			variant="secondary"
+			isDestructive
+			href="#"
+		>
+			Destructive Secondary button
+		</Button>
+	</Story>
+</Canvas>
+
+<Canvas>
+	<Story name="Destructive Link button">
+		<Button
+			variant="link"
+			isDestructive
+			href="#"
+		>
+			Destructive Link button
+		</Button>
+	</Story>
+</Canvas>
+
+## Small buttons
+
+Decreases the size of the button.
+
+<Canvas>
+	<Story name="Small Primary button">
+		<Button
+			variant="primary"
+			isSmall="true"
+			href="#"
+		>
+			Small Primary button
+		</Button>
+	</Story>
+</Canvas>
+
+<Canvas>
+	<Story name="Small Secondary button">
+		<Button
+			variant="secondary"
+			isSmall="true"
+			href="#"
+		>
+			Small Secondary button
+		</Button>
+	</Story>
+</Canvas>
+
+<Canvas>
+	<Story name="Small Link button">
+		<Button
+			variant="link"
+			isSmall="true"
+			href="#"
+		>
+			Small Link button
+		</Button>
+	</Story>
+</Canvas>
+
+## Disabled buttons
+
+Disabled states for buttons where it applies.
+
+<Canvas>
+	<Story name="Primary disabled button">
+		<Button
+			variant="primary"
+			disabled="true"
+			href="#"
+		>
+			Primary  disabled button
+		</Button>
+	</Story>
+</Canvas>
+
+<Canvas>
+	<Story name="Secondary disabled button">
+		<Button
+			variant="secondary"
+			disabled="true"
+			href="#"
+		>
+			Secondary disabled button
+		</Button>
+	</Story>
+</Canvas>
+
+<Canvas>
+	<Story name="Destructive disabled Primary button">
+		<Button
+			variant="primary"
+			isDestructive
+			disabled
+			href="#"
+		>
+			Destructive disabled Primary button
+		</Button>
+	</Story>
+</Canvas>

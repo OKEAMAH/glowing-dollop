@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<ruleset name="Jetpack-Plugin">
+	<rule ref="Jetpack"/>
+
+	<rule ref="VariableAnalysis.CodeAnalysis.VariableAnalysis">
+		<!-- Template files use extracted variables. -->
+		<exclude-pattern>/extensions/blocks/podcast-player/templates/*</exclude-pattern>
+	</rule>
+
+	<rule ref="WordPress.WP.I18n">
+		<properties>
+			<property name="text_domain" type="array">
+				<element value="jetpack"/>
+			</property>
+		</properties>
+	</rule>
+
+	 <rule ref="Jetpack.Commenting.HooksInlineDocs">
+	   <properties>
+	    <property name="allowed_extra_versions" type="array" value="0.71"/>
+	    <property name="allowed_extra_versions" type="array" value="MU"/>
+	    </properties>
+	  </rule>
+
+	 <rule ref="Jetpack.Commenting.HooksRequireTags">
+	  	<properties>
+	  		<property name="required_tags" type="array" value="module"/>
+	  	</properties>
+	  	<include-pattern>/modules/*</include-pattern>
+	 </rule>
+
+	<!-- For the coding-standards package, we are borrowing from the WPCS' phpcs.xml.dist. -->
+	<rule ref="WordPress.Files.FileName">
+		<exclude-pattern>/packages/coding-standards/*</exclude-pattern>
+	</rule>
+	<rule ref="WordPress.NamingConventions.ValidVariableName">
+		<exclude-pattern>/packages/coding-standards/*</exclude-pattern>
+	</rule>
+	<rule ref="WordPress.CodeAnalysis.AssignmentInCondition.FoundInWhileCondition">
+		<exclude-pattern>/packages/coding-standards/*</exclude-pattern>
+	</rule>
+	<rule ref="PSR1.Classes.ClassDeclaration">
+		<include-pattern>/packages/coding-standards/*</include-pattern>
+	</rule>
+	<rule ref="PSR2.Methods.FunctionClosingBrace">
+		<include-pattern>/packages/coding-standards/*</include-pattern>
+	</rule>
+</ruleset>

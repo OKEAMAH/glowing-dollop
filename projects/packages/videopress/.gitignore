@@ -1,0 +1,10 @@
+vendor/
+node_modules/
+wordpress
+build/
+.cache/
+vendor/
+node_modules/
+wordpress
+build/
+.cache/

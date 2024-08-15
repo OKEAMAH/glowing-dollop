@@ -1,0 +1,44 @@
+{
+	"name": "automattic/jetpack-tracking",
+	"description": "Tracking for Jetpack",
+	"type": "jetpack-library",
+	"license": "GPL-2.0-or-later",
+	"require": {
+		"automattic/jetpack-assets": "^1.17",
+		"automattic/jetpack-status": "^1.14",
+		"automattic/jetpack-connection": "^1.41"
+	},
+	"require-dev": {
+		"automattic/jetpack-changelogger": "^3.2"
+	},
+	"autoload": {
+		"classmap": [
+			"legacy",
+			"src/"
+		]
+	},
+	"repositories": [
+		{
+			"type": "path",
+			"url": "../*",
+			"options": {
+				"monorepo": true
+			}
+		}
+	],
+	"scripts": {},
+	"minimum-stability": "dev",
+	"prefer-stable": true,
+	"extra": {
+		"autotagger": true,
+		"mirror-repo": "Automattic/jetpack-tracking",
+		"textdomain": "jetpack-tracking",
+		"changelogger": {
+			"link-template": "https://github.com/Automattic/jetpack-tracking/compare/v${old}...v${new}"
+		},
+		"branch-alias": {
+			"dev-trunk": "1.14.x-dev"
+		}
+	},
+	"abandoned": "automattic/jetpack-connection"
+}

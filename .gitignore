@@ -1,0 +1,56 @@
+## FOLDERS
+/.sass-cache/
+/node_modules
+vendor/
+jetpack_vendor/
+/.nova/
+/.vscode/
+/logs
+/allure-results/
+
+## FILES
+.DS_Store
+*.code-workspace
+# Custom environment for docker-compose (used by docker-compose.yml)
+/.env
+/tools/docker/compose-extras.yml
+/tools/docker/compose-volumes.yml
+/tools/docker/compose-volumes.built.yml
+/tools/docker/compose-extras.built.yml
+/tools/docker/compose-mappings.built.yml
+/tools/docker/jetpack-docker-config.yml
+
+# File for personal customiziations, if desired.
+/tools/docker/mu-plugins/0-sandbox.php
+.idea
+*.iml
+npm-debug.log
+*.unison.tmp
+.eslintcache
+.phpcs.xml
+.pnpm-debug.log
+phpcs.xml
+.phpunit.result.cache
+
+## Things for docker-composer
+/tools/docker/data/*
+!/tools/docker/data/.gitkeep
+!/tools/docker/data/ssh.keys/
+/tools/docker/logs/*
+!/tools/docker/logs/.gitkeep
+# Custom environment for docker containers
+/tools/docker/.env
+/tools/docker/wordpress-develop/*
+!/tools/docker/wordpress-develop/.gitkeep
+/tools/docker/wordpress/*
+!/tools/docker/wordpress/.gitkeep
+
+# Tunneling scripts
+/tools/jtuber.sh
+/tools/tunnel.sh
+/tools/jt/
+/tools/docker/bin/jt/
+
+# This file indicates we're in draft mode, which reduces checks
+.jetpack-draft
+

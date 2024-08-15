@@ -1,0 +1,18 @@
+@import './view.scss';
+
+.wp-block-jetpack-instagram-gallery__count-notice {
+	.components-notice {
+		margin: 0 0 15px 0;
+	}
+
+	.components-notice__content {
+		margin: 0;
+		line-height: inherit;
+		padding-right: 0;
+	}
+}
+
+.wp-block-jetpack-instagram-gallery__disconnection-warning {
+	font-style: italic;
+	margin-bottom: 0;
+}

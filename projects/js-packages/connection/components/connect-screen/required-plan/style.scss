@@ -1,0 +1,61 @@
+@import '@wordpress/base-styles/breakpoints';
+@import '@wordpress/base-styles/mixins';
+
+.jp-connection__connect-screen-layout__left {
+	@include break-xlarge {
+		width: 60%;
+	}
+}
+
+.jp-connection__connect-screen-required-plan {
+	@include break-xlarge {
+		position: relative;
+		background: linear-gradient(to right, white 70%, #F9F9F6 30%);
+	}
+
+	&__loading {
+		display: none;
+	}
+
+	&__pricing-card {
+		margin-top: 24px;
+
+		@include break-xlarge {
+			position: absolute;
+			top: 14%;
+			left: 62%;
+			margin-top: 0;
+		}
+
+		.components-button  {
+			width: 100%;
+			height: auto;
+			font-size: 18px;
+			font-weight: 500;
+			padding: 14px 24px;
+			margin: 24px 0px 32px;
+			justify-content: center;
+			align-items: center;
+		}
+	}
+
+	&__with-subscription {
+		margin-top: 38px;
+
+		.jp-action-button {
+			display: inline;
+		}
+
+		.jp-action-button--button {
+			display: inline;
+			font-size: var( --font-title-small );
+			line-height: 20px;
+			font-size: 12px;
+
+			width: auto;
+			height: auto;
+			font: inherit;
+			padding: 0;
+		}
+	}
+}

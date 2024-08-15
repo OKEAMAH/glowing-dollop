@@ -1,0 +1,26 @@
+{
+	"production": [
+		"business-hours",
+		"contact-form",
+		"contact-info",
+		"gif",
+		"likes",
+		"mailchimp",
+		"map",
+		"markdown",
+		"publicize",
+		"recurring-payments",
+		"related-posts",
+		"repeat-visitor",
+		"sharing",
+		"shortlinks",
+		"simple-payments",
+		"slideshow",
+		"subscriptions",
+		"subscriptions-toggle",
+		"tiled-gallery",
+		"videopress",
+		"wordads"
+	],
+	"beta": [ "pinterest", "seo" ]
+}

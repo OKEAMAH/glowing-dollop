@@ -1,0 +1,36 @@
+name: Build production to master-built
+on:
+  push:
+    branches:
+      - add/actions-upload-artifact
+
+jobs:
+  build_master_job:
+    runs-on: ubuntu-latest
+    name: Build production version of master to master-built branch!
+    steps:
+      - name: Checkout Jetpack
+        uses: actions/checkout@master
+
+      - name: Build production version
+        run: yarn build-production
+
+      - name: Clean out dev files
+        run: ./bin/prepare-built-branch.sh
+
+      - name: Adding built files to git
+        run: git add .
+
+      - name: Commit and push
+        uses: github-actions-x/commit@v2.4
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          push-branch: 'add/actions-upload-artifact2'
+          commit-message: 'Build from ${{ github.head_ref }}'
+          force-add: 'true'
+
+      - name: Upload build zip
+        uses: actions/upload-artifact@v1
+        with:
+          name: master-built
+          path: ${{ github.workflow }}

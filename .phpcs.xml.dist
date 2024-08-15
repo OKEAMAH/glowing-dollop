@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<ruleset>
+
+	<!-- Load configuration. -->
+	<rule ref="./.phpcs.config.xml" />
+
+	<!-- Default ruleset. -->
+	<rule ref="Jetpack" />
+
+	<rule ref="WordPress.WP.I18n">
+		<properties>
+			<property name="text_domain" type="array">
+				<!-- Dummy entry, projects should override this in .phpcs.dir.xml. -->
+				<element value="no text domain is set in this in this project's .phpcs.dir.xml"/>
+			</property>
+		</properties>
+	</rule>
+	<rule ref="Jetpack.Functions.I18n">
+		<properties>
+			<property name="text_domain" value="no text domain is set in this in this project's .phpcs.dir.xml" />
+		</properties>
+	</rule>
+
+	<!-- WordPress-Extra pulls this in. But PHP linting can be run more efficiently via bin/parallel-lint.sh than by having phpcs shell out to `php -l`. -->
+	<rule ref="Generic.PHP.Syntax">
+		<exclude name="Generic.PHP.Syntax" />
+	</rule>
+
+</ruleset>

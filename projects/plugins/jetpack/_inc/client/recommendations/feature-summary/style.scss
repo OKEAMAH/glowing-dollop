@@ -1,0 +1,52 @@
+@import '../../scss/variables/colors';
+@import '../../scss/typography';
+
+.jp-recommendations-feature-summary {
+	display: flex;
+	min-width: 275px;
+
+	border-bottom: 1px solid #e1e1e1;
+
+	.gridicons-checkmark-circle {
+		fill: $green-primary;
+	}
+
+	&:last-child {
+		border-bottom: none;
+	}
+}
+
+.jp-recommendations-feature-summary__checkmark {
+	display: flex;
+	align-items: center;
+	align-content: center;
+}
+
+.jp-recommendations-feature-summary__display-name {
+	display: flex;
+	align-items: center;
+	padding-left: 12px;
+
+	font-size: $font-body;
+}
+
+.jp-recommendations-summary .jp-recommendations-feature-summary__display-name a {
+	color: var( --jp-gray-100 );
+}
+
+.jp-recommendations-feature-summary__cta {
+	button {
+		width: 100%;
+	}
+
+	a {
+		width: 100%;
+		text-align: center;
+	}
+}
+
+.jp-recommendations-feature-summary__actions {
+	margin-inline-start: auto;
+	padding: 8px;
+}
+

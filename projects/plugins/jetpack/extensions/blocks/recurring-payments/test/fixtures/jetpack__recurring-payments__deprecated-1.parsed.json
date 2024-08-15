@@ -1,0 +1,14 @@
+[
+	{
+		"blockName": "jetpack/recurring-payments",
+		"attrs": {
+			"planId": 228,
+			"submitButtonText": "$0.50 Contribution",
+			"submitButtonClasses": "wp-block-button__link",
+			"align": "center"
+		},
+		"innerBlocks": [],
+		"innerHTML": "",
+		"innerContent": []
+	}
+]

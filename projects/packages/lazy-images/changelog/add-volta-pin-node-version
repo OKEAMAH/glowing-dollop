@@ -1,0 +1,4 @@
+Significance: patch
+Type: added
+
+Added volta configuration to package.json to pin node version

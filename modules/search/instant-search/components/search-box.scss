@@ -1,0 +1,17 @@
+.jetpack-instant-search__box {
+	display: flex;
+}
+
+.jetpack-instant-search__box-filter-icon {
+	margin-left: 4px;
+	cursor: pointer;
+}
+
+/* apply to all the inputs to try and pick up any theme styling */
+.jetpack-instant-search__box input {
+	border-radius: 2px;
+	font-size: 14px;
+	height: 26px;
+	width: 100%;
+	line-height: 1.2em;
+}

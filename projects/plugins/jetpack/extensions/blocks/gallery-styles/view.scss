@@ -1,0 +1,29 @@
+.wp-block-gallery.blocks-gallery-grid.has-nested-images.is-style-masonry {
+	display: block;
+	columns: 3 200px;
+	column-gap: 1rem;
+	figure.wp-block-image:not( #individual-image ) {
+		display: inline-block;
+		width: 150px;
+		margin: 0 8px 8px 0;
+		width: 100%;
+		height: 100%;
+		text-align: center;
+
+		> div:not( .components-drop-zone ) {
+			display: block;
+			height: 100%;
+		}
+	}
+
+	.blocks-gallery-caoption,
+	.components-form-file-upload {
+		column-span: all;
+	}
+
+	@for $column-count from 1 through 8 {
+		&.columns-#{$column-count} {
+			columns: $column-count 200px;
+		}
+	}
+}

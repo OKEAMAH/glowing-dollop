@@ -1,0 +1,44 @@
+{
+	"private": true,
+	"name": "@automattic/jetpack-publicize",
+	"version": "0.1.1-alpha",
+	"description": "Publicize makes it easy to share your site’s posts on several social media networks automatically when you publish a new post.",
+	"homepage": "https://github.com/Automattic/jetpack/tree/HEAD/projects/packages/publicize/#readme",
+	"bugs": {
+		"url": "https://github.com/Automattic/jetpack/labels/[Package] Publicize"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Automattic/jetpack.git",
+		"directory": "projects/packages/publicize"
+	},
+	"license": "GPL-2.0-or-later",
+	"author": "Automattic",
+	"scripts": {
+		"build": "echo 'Not implemented.'",
+		"build-js": "echo 'Not implemented.'",
+		"build-production": "echo 'Not implemented.'",
+		"build-production-js": "echo 'Not implemented.'",
+		"clean": "true"
+	},
+	"engines": {
+		"node": "^14.18.3 || ^16.13.2",
+		"pnpm": "^6.32.3",
+		"yarn": "use pnpm instead - see docs/yarn-upgrade.md"
+	},
+	"exports": {
+		".": "./src/js/index.js"
+	},
+	"dependencies": {
+		"@automattic/color-studio": "2.5.0",
+		"@automattic/jetpack-base-styles": "workspace:0.3.2-alpha",
+		"@automattic/jetpack-shared-extension-utils": "workspace:0.4.4-alpha",
+		"@wordpress/icons": "8.3.0",
+		"classnames": "2.3.1",
+		"prop-types": "15.8.1",
+		"react": "17.0.2",
+		"react-page-visibility": "6.4.0",
+		"refx": "3.1.1",
+		"rememo": "3.0.0"
+	}
+}

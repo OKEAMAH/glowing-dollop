@@ -1,0 +1,146 @@
+@import '../../shared/styles/jetpack-variables.scss';
+@import './variables.scss';
+@import './css-gram.scss';
+
+@mixin tiled-gallery-squareish-layout-col-width($gutter, $cols){
+	width: calc( ( 100% - #{ $gutter * ( $cols - 1 ) } ) / #{$cols} );
+}
+
+.wp-block-jetpack-tiled-gallery {
+	margin: 0 auto $jetpack-block-margin-bottom;
+
+	&.is-style-circle .tiled-gallery__item img {
+		border-radius: 50%;
+	}
+
+	&.is-style-square,
+	&.is-style-circle {
+		.tiled-gallery__row {
+			flex-grow: 1;
+			width: 100%;
+
+			// Default gutter for square'ish layouts for each column size
+			@for $cols from 1 through $tiled-gallery-max-column-count {
+				&.columns-#{$cols} {
+					.tiled-gallery__col {
+						@include tiled-gallery-squareish-layout-col-width($tiled-gallery-default-gutter, $cols);
+					}
+				}
+			}
+
+			// Generate different size gutters for square'ish layouts for each column size
+			@for $cols from 1 through $tiled-gallery-max-column-count {
+				// When gutter size is set
+				@each $gutter-size, $gutter-px in $tiled-gallery-gutters {
+					// Small is default, hence no need to define it here since it's defined above
+					@if $gutter-size != $tiled-gallery-default-gutter-size {
+						&.columns-#{$cols} {
+							.tiled-gallery__col {
+								@include tiled-gallery-squareish-layout-col-width($gutter-px, $cols);
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	&.is-style-columns,
+	&.is-style-rectangular {
+		.tiled-gallery__item {
+			display: flex;
+		}
+	}
+}
+
+.tiled-gallery__gallery {
+	width: 100%;
+	display: flex;
+	padding: 0;
+	flex-wrap: wrap;
+}
+
+.tiled-gallery__row {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	margin: 0;
+}
+
+.tiled-gallery__col {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin: 0;
+}
+
+.tiled-gallery__item {
+	justify-content: center;
+	margin: 0;
+	overflow: hidden;
+	padding: 0;
+	position: relative;
+
+	&.filter__black-and-white {
+		filter: grayscale( 100% );
+	}
+
+	&.filter__sepia {
+		filter: sepia( 100% );
+	}
+
+	&.filter__1977 {
+		@include _1977;
+	}
+
+	&.filter__clarendon {
+		@include clarendon;
+	}
+
+	&.filter__gingham {
+		@include gingham;
+	}
+
+	> img {
+		background-color: rgba( 0, 0, 0, 0.1 );
+	}
+
+	> a,
+	> a > img,
+	> img {
+		display: block;
+		height: auto;
+		margin: 0;
+		max-width: 100%;
+		object-fit: cover;
+		object-position: center;
+		padding: 0;
+		width: 100%;
+	}
+}
+
+// Default gutter when not set
+.tiled-gallery__item + .tiled-gallery__item,
+.tiled-gallery__row + .tiled-gallery__row {
+	margin-top: $tiled-gallery-default-gutter;
+}
+
+.tiled-gallery__col + .tiled-gallery__col {
+	margin-left: $tiled-gallery-default-gutter;
+}
+
+// When gutter size is set
+@each $gutter-size, $gutter-px in $tiled-gallery-gutters {
+	// Small is default, hence no need to define it here since it's defined above
+	@if $gutter-size != $tiled-gallery-default-gutter-size {
+		.has-gutter-#{$gutter-size} .tiled-gallery__item + .tiled-gallery__item,
+		.has-gutter-#{$gutter-size} .tiled-gallery__row + .tiled-gallery__row {
+			margin-top: #{$gutter-px};
+		}
+
+		.has-gutter-#{$gutter-size} .tiled-gallery__col + .tiled-gallery__col {
+			margin-left: #{$gutter-px};
+		}
+	}
+}

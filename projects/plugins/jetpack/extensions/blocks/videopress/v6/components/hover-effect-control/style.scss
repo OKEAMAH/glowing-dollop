@@ -1,0 +1,48 @@
+.components-time-control__header-title {
+	flex-grow: 2;
+}
+
+.components-time-control .components-button.is-small.has-icon:not(.has-text) {
+    min-width: 24px;
+    padding: 0;
+}
+
+.components-time-control .components-input-control__suffix {
+	margin: 1px 3px 1px 1px;
+	padding: 1px 2px;
+	font-size: 8px;
+	letter-spacing: -0.5px;
+	text-transform: uppercase;
+}
+.components-base-control .components-range-control__wrapper {
+	margin-bottom: 0;
+}
+
+.components-time-control .components-range-control__marks {
+	margin-top: 13px;
+}
+
+.components-time-control__ss_control,
+.components-time-control__mm_control,
+.components-time-control__hh_control {
+	font-size: 12px;
+	color: rgb(108, 119, 129);
+	flex-grow: 1;
+}
+
+.components-time-control__hundredths_control {
+	flex-grow: 1;
+	font-size: 12px;
+	color: rgb(108, 119, 129);
+	padding-left: 8px;
+}
+
+.components-time-control__info-pane {
+	margin-bottom: 8px;
+	height: 32px;
+	font-size: 16px;
+}
+
+.components-time-control__block-decimal {
+	color: rgb(108, 119, 129)
+}

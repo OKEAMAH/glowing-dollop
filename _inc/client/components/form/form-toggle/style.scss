@@ -1,0 +1,16 @@
+@import '../../../scss/calypso-colors';
+// ==========================================================================
+// FormToggle
+// ==========================================================================
+
+// Classes for toggle state before action is complete (updating plugin or something)
+.form-toggle.is-toggling {
+	+ .form-toggle__label .form-toggle__switch {
+		background: $blue-medium;
+	}
+	&:checked {
+		+ .form-toggle__label .form-toggle__switch {
+			background: lighten( $gray, 20% );
+		}
+	}
+}

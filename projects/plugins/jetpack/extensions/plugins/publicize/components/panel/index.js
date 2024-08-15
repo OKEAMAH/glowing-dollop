@@ -1,0 +1,127 @@
+/**
+ * Publicize sharing panel component.
+ *
+ * Displays Publicize notifications if no
+ * services are connected or displays form if
+ * services are connected.
+ */
+
+/**
+ * WordPress dependencies
+ */
+import { __ } from '@wordpress/i18n';
+import { PanelBody, PanelRow, ToggleControl } from '@wordpress/components';
+import { store as editorStore } from '@wordpress/editor';
+import { useSelect } from '@wordpress/data';
+
+/**
+ * Internal dependencies
+ */
+import PublicizeConnectionVerify from '../connection-verify';
+import PublicizeForm from '../form';
+import PublicizeTwitterOptions from '../twitter/options';
+import useSelectSocialMediaConnections from '../../hooks/use-social-media-connections';
+import { usePostJustBeforePublish } from '../../hooks/use-saving-post';
+import { SharePostRow } from '../share-post';
+import { useSharePostFeature } from '../../hooks/use-share-post';
+import usePublicizeConfig from '../../hooks/use-publicize-config';
+
+const PublicizePanel = ( { prePublish } ) => {
+	const { isRePublicizeFeatureEnabled } = usePublicizeConfig();
+	const { refresh, connections, hasEnabledConnections } = useSelectSocialMediaConnections();
+	const { isEnabled, toggleEnable } = useSharePostFeature();
+
+	const isPostPublished = useSelect( select => select( editorStore ).isCurrentPostPublished(), [] );
+	const hasConnections = !! connections?.length;
+
+	// Refresh connections when the post is just published.
+	usePostJustBeforePublish(
+		function () {
+			/*
+			 * Being optimistic, it sets the connections
+			 * that are going to be used
+			 * to share the post as `done`.
+			 * The sharing process is handled by an async action,
+			 * in the server-side.
+			 */
+			const updatedConnections = connections.map( connection => ( {
+				...connection,
+				done: connection.enabled,
+				toggleable: ! connection.enabled,
+			} ) );
+
+			refresh( updatedConnections );
+		},
+		[ refresh ]
+	);
+
+	let mainMessage = __(
+		'Start sharing your posts automatically by connecting your social media accounts.',
+		'jetpack'
+	);
+
+	if ( hasConnections && ( ! isEnabled || ! hasEnabledConnections ) ) {
+		if ( isPostPublished ) {
+			mainMessage = __(
+				'Use this tool to share your post on all your social media accounts.',
+				'jetpack'
+			);
+		} else {
+			mainMessage = __(
+				'Use this tool to automatically share your post on all your social media accounts.',
+				'jetpack'
+			);
+		}
+	} else if ( isEnabled && hasEnabledConnections && ! isPostPublished ) {
+		mainMessage = __(
+			'This post will be shared on all your enabled social media accounts the moment you publish the post.',
+			'jetpack'
+		);
+	} else if ( isEnabled && hasEnabledConnections && isPostPublished ) {
+		mainMessage = __(
+			'Share this post on all your enabled social media accounts by clicking on the share post button.',
+			'jetpack'
+		);
+	}
+
+	// Override the main message if the feature is disabled.
+	if ( ! isRePublicizeFeatureEnabled ) {
+		mainMessage = __(
+			'This post will be shared on all your enabled social media accounts the moment you publish the post.',
+			'jetpack'
+		);
+	}
+
+	const hideBehindRePublicizeFlag = isEnabled || ! isRePublicizeFeatureEnabled;
+
+	return (
+		<PanelBody title={ __( 'Share this post', 'jetpack' ) }>
+			{ isRePublicizeFeatureEnabled && (
+				<PanelRow>
+					<ToggleControl
+						label={
+							isEnabled
+								? __( 'Sharing is enabled', 'jetpack' )
+								: __( 'Sharing is disabled', 'jetpack' )
+						}
+						onChange={ toggleEnable }
+						checked={ isEnabled }
+						disabled={ ! hasConnections }
+					/>
+				</PanelRow>
+			) }
+
+			<p>{ mainMessage }</p>
+
+			<PublicizeConnectionVerify />
+			<PublicizeForm
+				isPublicizeEnabled={ hideBehindRePublicizeFlag }
+				isRePublicizeFeatureEnabled={ isRePublicizeFeatureEnabled }
+			/>
+			{ hideBehindRePublicizeFlag && <PublicizeTwitterOptions prePublish={ prePublish } /> }
+			{ isRePublicizeFeatureEnabled && <SharePostRow isEnabled={ isPostPublished && isEnabled } /> }
+		</PanelBody>
+	);
+};
+
+export default PublicizePanel;

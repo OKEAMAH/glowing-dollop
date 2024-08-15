@@ -1,0 +1,53 @@
+{
+	"name": "automattic/jetpack-post-list",
+	"description": "PostList",
+	"type": "library",
+	"license": "GPL-2.0-or-later",
+	"require": {},
+	"require-dev": {
+		"automattic/jetpack-changelogger": "^1.2"
+	},
+	"autoload": {
+		"files": [
+			"actions.php"
+		],
+		"classmap": [
+			"src/"
+		]
+	},
+	"repositories": [
+		{
+			"type": "path",
+			"url": "../*",
+			"options": {
+				"monorepo": true
+			}
+		}
+	],
+	"scripts": {
+		"build-development": [
+			"Composer\\Config::disableProcessTimeout",
+			"pnpm run build"
+		],
+		"build-production": [
+			"Composer\\Config::disableProcessTimeout",
+			"pnpm run start"
+		],
+		"watch": [
+			"Composer\\Config::disableProcessTimeout",
+			"pnpm run watch"
+		]
+	},
+	"minimum-stability": "dev",
+	"prefer-stable": true,
+	"extra": {
+		"autotagger": true,
+		"mirror-repo": "automattic/jetpack-post-list",
+		"changelogger": {
+			"link-template": "https://github.com/automattic/jetpack-post-list/compare/v${old}...v${new}"
+		},
+		"branch-alias": {
+			"dev-master": "0.1.x-dev"
+		}
+	}
+}

@@ -1,0 +1,30 @@
+@import './_variables.scss';
+
+$color-modal-background: $studio-white;
+$search-box-size: 60px;
+
+.jp-mocked-search {
+	border-radius: 3px;
+	margin: 0 auto;
+	width: 100%;
+	height: 62vh;
+	user-select: none;
+	display: flex;
+	flex-flow: column;
+	align-items: center;
+	padding-top: 8vh;
+}
+.jp-mocked-search__search-controls {
+	display: flex;
+	flex-flow: row nowrap;
+	width: 100%;
+	background: $color-modal-background;
+	box-shadow: rgba( 0, 0, 0, 0.35 ) 0px 5px 25px;
+}
+.jp-mocked-search__search-icon {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: $search-box-size;
+	height: $search-box-size;
+}

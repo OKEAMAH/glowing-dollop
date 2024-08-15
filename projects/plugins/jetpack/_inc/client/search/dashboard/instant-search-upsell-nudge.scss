@@ -1,0 +1,35 @@
+@import './_variables.scss';
+
+$color-nudget-text: #000;
+
+.jp-instant-search-upsell-nudge {
+	display: flex;
+	flex-direction: row nowrap;
+	align-content: space-between;
+	width: 38em;
+	max-width: 100%;
+	padding: 1em;
+	border-radius: 5px;
+	border: 2px solid $color-jetpack-green;
+
+	color: $color-nudget-text;
+
+	font-size: 0.75em;
+	font-weight: normal;
+	text-decoration: none;
+	&:hover {
+		color: $color-nudget-text;
+	}
+
+	cursor: pointer;
+}
+.jp-instant-search-upsell-nudge__button-arrow {
+	display: flex;
+	align-items: center;
+	padding: 0.4em;
+
+	color: $color-jetpack-green;
+
+	font-size: 1.5em;
+	font-weight: bold;
+}

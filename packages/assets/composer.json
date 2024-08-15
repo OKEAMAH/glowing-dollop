@@ -1,0 +1,22 @@
+{
+	"name": "automattic/jetpack-assets",
+	"description": "Asset management utilities for Jetpack ecosystem packages",
+	"type": "library",
+	"license": "GPL-2.0-or-later",
+	"require": {
+		"automattic/jetpack-constants": "@dev"
+	},
+	"autoload": {
+		"psr-4": {
+			"Automattic\\Jetpack\\": "src/"
+		}
+	},
+	"repositories": [
+		{
+			"type": "path",
+			"url": "../*"
+		}
+	],
+	"minimum-stability": "dev",
+	"prefer-stable": true
+}
